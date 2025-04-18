@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AppRoute } from '../../const';
-import Favorites from '../../pages/favourites-page/favorites-page';
-import Login from '../../pages/login-page/login-page';
-import Main from '../../pages/main-page/main-page';
-import Offer from '../../pages/offer-page/offer-page';
+import FavoritesPage from '../../pages/favourites-page/favorites-page';
+import LoginPage from '../../pages/login-page/login-page';
+import MainPage from '../../pages/main-page/main-page';
+import OfferPage from '../../pages/offer-page/offer-page';
 
 type MainPageProps = {
   placesCount: number;
@@ -15,19 +15,19 @@ export default function App({placesCount}: MainPageProps): JSX.Element {
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={<Main placesCount={placesCount} />}
+          element={<MainPage placesCount={placesCount} />}
         />
                 <Route
           path={AppRoute.Favorites}
-          element={<Favorites />}
+          element={<FavoritesPage />}
         />
                 <Route
           path={AppRoute.Login}
-          element={<Login />}
+          element={<LoginPage />}
         />
                 <Route
           path={AppRoute.Offer}
-          element={<Offer />}
+          element={<OfferPage />}
         />
       </Routes>
     </BrowserRouter>
