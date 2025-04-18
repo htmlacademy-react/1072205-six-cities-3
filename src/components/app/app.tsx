@@ -4,6 +4,7 @@ import FavoritesPage from '../../pages/favourites-page/favorites-page';
 import LoginPage from '../../pages/login-page/login-page';
 import MainPage from '../../pages/main-page/main-page';
 import OfferPage from '../../pages/offer-page/offer-page';
+import NotFoundPage from '../../pages/not-found-page/not-found-page';
 
 type MainPageProps = {
   placesCount: number;
@@ -28,6 +29,10 @@ export default function App({placesCount}: MainPageProps): JSX.Element {
                 <Route
           path={AppRoute.Offer}
           element={<OfferPage />}
+        />
+        <Route
+          path="*"
+          element={<NotFoundPage />}
         />
       </Routes>
     </BrowserRouter>
