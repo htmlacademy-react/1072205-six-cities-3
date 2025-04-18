@@ -7,7 +7,7 @@ type LocationsItemProps = {
 export default function LocationsItem({cityName}: LocationsItemProps): JSX.Element {
   return (
     <li className="locations__item">
-      <Link className="locations__item-link tabs__item" to="/">
+      <Link className="locations__item-link tabs__item" to="#">
         <span>{cityName}</span>
       </Link>
     </li>

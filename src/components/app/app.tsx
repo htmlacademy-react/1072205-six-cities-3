@@ -34,7 +34,7 @@ export default function App({placesCount}: MainPageProps): JSX.Element {
           element={<LoginPage />}
         />
                 <Route
-          path={AppRoute.Offer}
+          path={`${AppRoute.Offer}/:id`}
           element={<OfferPage />}
         />
         <Route
