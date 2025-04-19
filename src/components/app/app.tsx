@@ -29,11 +29,11 @@ export default function App({placesCount}: MainPageProps): JSX.Element {
             </PrivateRoute>
           }
         />
-                <Route
+        <Route
           path={AppRoute.Login}
           element={<LoginPage />}
         />
-                <Route
+        <Route
           path={`${AppRoute.Offer}/:id`}
           element={<OfferPage />}
         />

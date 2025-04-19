@@ -1,4 +1,4 @@
-import PlaceCard from "./place-card";
+import PlaceCard from './place-card';
 
 export default function PlacesList(): JSX.Element {
   return (

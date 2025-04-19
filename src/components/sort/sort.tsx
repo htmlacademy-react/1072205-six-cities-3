@@ -1,5 +1,5 @@
-import { SORT_TYPES } from "../../const";
-import SortOption from "./sort-option";
+import { SORT_TYPES } from '../../const';
+import SortOption from './sort-option';
 
 export default function Sort(): JSX.Element {
   return (
@@ -13,7 +13,7 @@ export default function Sort(): JSX.Element {
       </span>
       <ul className="places__options places__options--custom places__options--opened">
         {SORT_TYPES.map((sortType) => (
-          <SortOption sortType={sortType} />
+          <SortOption key={sortType} sortType={sortType} />
         ))}
       </ul>
     </form>

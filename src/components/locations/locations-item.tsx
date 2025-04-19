@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 type LocationsItemProps = {
-  cityName: String;
+  cityName: string;
 }
 
 export default function LocationsItem({cityName}: LocationsItemProps): JSX.Element {

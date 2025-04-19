@@ -1,5 +1,5 @@
 type SortOptionProps = {
-  sortType: String;
+  sortType: string;
 }
 
 export default function SortOption({sortType}: SortOptionProps): JSX.Element {
