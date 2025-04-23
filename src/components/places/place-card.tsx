@@ -3,11 +3,18 @@ import { Offer } from '../../types/offer';
 
 type PlaceCardProps = {
   offer: Offer;
+  activeCardId: string;
 }
 
-export default function PlaceCardProps({offer}: PlaceCardProps): JSX.Element {
+export default function PlaceCardProps({offer, activeCardId}: PlaceCardProps): JSX.Element {
   return (
-    <article className="cities__card place-card">
+    <article
+      className="cities__card place-card"
+      onMouseOver={() => {
+        activeCardId = offer.id;
+        console.log(`Наведение на карточку с ID ${offer.id}`);
+      }}
+    >
       {offer.isPremium &&
         <div className="place-card__mark">
           <span>Premium</span>

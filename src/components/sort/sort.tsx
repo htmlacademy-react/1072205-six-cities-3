@@ -11,7 +11,7 @@ export default function Sort(): JSX.Element {
           <use xlinkHref="#icon-arrow-select"></use>
         </svg>
       </span>
-      <ul className="places__options places__options--custom places__options--opened">
+      <ul className="places__options places__options--custom">
         {SORT_TYPES.map((sortType) => (
           <SortOption key={sortType} sortType={sortType} />
         ))}
@@ -19,3 +19,5 @@ export default function Sort(): JSX.Element {
     </form>
   );
 }
+
+// класс для открытия списка сортировок places__options--opened
