@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
+import { Offer } from '../../types/offer';
 import FavoritesPage from '../../pages/favourites-page/favorites-page';
 import LoginPage from '../../pages/login-page/login-page';
 import MainPage from '../../pages/main-page/main-page';
@@ -9,15 +10,16 @@ import PrivateRoute from '../private-route/private-route';
 
 type MainPageProps = {
   placesCount: number;
+  offers: Offer[];
 }
 
-export default function App({placesCount}: MainPageProps): JSX.Element {
+export default function App({placesCount, offers}: MainPageProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={<MainPage placesCount={placesCount} />}
+          element={<MainPage placesCount={placesCount} offers={offers} />}
         />
         <Route
           path={AppRoute.Favorites}
