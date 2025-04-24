@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Offer } from '../../types/offer';
+import { AppRoute } from '../../const';
 
 type PlaceCardProps = {
   offer: Offer;
@@ -22,7 +23,7 @@ export default function PlaceCard({offer, activeCardId, listClassPrefix}: PlaceC
         </div>
       }
       <div className={`${listClassPrefix}__image-wrapper place-card__image-wrapper`}>
-        <Link to="#">
+        <Link to={`${AppRoute.Offer}/${offer.id}`}>
           <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place image" />
         </Link>
       </div>
@@ -51,7 +52,7 @@ export default function PlaceCard({offer, activeCardId, listClassPrefix}: PlaceC
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to="#">{offer.title}</Link>
+          <Link to={`${AppRoute.Offer}/${offer.id}`}>{offer.title}</Link>
         </h2>
         <p className="place-card__type">{offer.type}</p>
       </div>
