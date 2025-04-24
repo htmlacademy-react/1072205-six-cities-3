@@ -31,3 +31,9 @@ export type Offer = {
   images?: [string];
   maxAdults?: number;
 }
+
+export type Offers = Offer[]
+
+export type FavoriteOffer = Omit<Offer, 'isFavorite'> & { isFavorite: true };
+
+export type FavoriteOffers = FavoriteOffer[];

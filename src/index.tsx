@@ -1,5 +1,5 @@
 import { Setting } from './const';
-import { offers } from './mocks/offers';
+import { offers, favoriteOffers } from './mocks/offers';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
@@ -13,6 +13,7 @@ root.render(
     <App
       placesCount = {Setting.PlacesCount}
       offers = {offers}
+      favoriteOffers = {favoriteOffers}
     />
   </React.StrictMode>
 );

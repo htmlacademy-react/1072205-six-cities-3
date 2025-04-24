@@ -1,6 +1,6 @@
-import { Offer } from '../types/offer';
+import { Offer, Offers, FavoriteOffer, FavoriteOffers } from '../types/offer';
 
-export const offers: Offer[] = [
+export const offers: Offers = [
   {
     id: '6af6f711-c28d-4121-82cd-e0b462a27f00',
     title: 'Beautiful & luxurious studio at great location',
@@ -150,3 +150,9 @@ export const offers: Offer[] = [
     "maxAdults": 4
   }
 ]
+
+function isFavoriteOffer(offer: Offer): offer is FavoriteOffer {
+  return offer.isFavorite === true;
+}
+
+export const favoriteOffers: FavoriteOffers = offers.filter(isFavoriteOffer);

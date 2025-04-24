@@ -26,7 +26,7 @@ export default function MainPage({placesCount, offers} : MainPageProps): JSX.Ele
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{placesCount} places to stay in Amsterdam</b>
               <Sort />
-              <PlacesList offers={offers}/>
+              <PlacesList offers={offers} listClassPrefix="cities" />
             </section>
             <div className="cities__right-section">
               <Map />

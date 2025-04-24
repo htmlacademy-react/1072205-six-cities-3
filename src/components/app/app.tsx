@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
-import { Offer } from '../../types/offer';
-import FavoritesPage from '../../pages/favourites-page/favorites-page';
+import { Offers, FavoriteOffers } from '../../types/offer';
+import FavoritesPage from '../../pages/favorites-page/favorites-page';
 import LoginPage from '../../pages/login-page/login-page';
 import MainPage from '../../pages/main-page/main-page';
 import OfferPage from '../../pages/offer-page/offer-page';
@@ -10,10 +10,17 @@ import PrivateRoute from '../private-route/private-route';
 
 type MainPageProps = {
   placesCount: number;
-  offers: Offer[];
+  offers: Offers;
 }
 
-export default function App({placesCount, offers}: MainPageProps): JSX.Element {
+type FavoritesPageProps = {
+  favoriteOffers: FavoriteOffers;
+}
+
+export default function App(
+  {placesCount, offers, favoriteOffers}: MainPageProps & FavoritesPageProps
+): JSX.Element {
+
   return (
     <BrowserRouter>
       <Routes>
@@ -25,9 +32,9 @@ export default function App({placesCount, offers}: MainPageProps): JSX.Element {
           path={AppRoute.Favorites}
           element={
             <PrivateRoute
-              authorizationStatus={AuthorizationStatus.NoAuth}
+              authorizationStatus={AuthorizationStatus.Auth}
             >
-              <FavoritesPage />
+              <FavoritesPage favoriteOffers={favoriteOffers} />
             </PrivateRoute>
           }
         />

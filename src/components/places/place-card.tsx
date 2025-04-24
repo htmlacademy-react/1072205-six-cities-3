@@ -3,13 +3,14 @@ import { Offer } from '../../types/offer';
 
 type PlaceCardProps = {
   offer: Offer;
-  activeCardId: string;
+  activeCardId?: string;
+  listClassPrefix?: string;
 }
 
-export default function PlaceCardProps({offer, activeCardId}: PlaceCardProps): JSX.Element {
+export default function PlaceCard({offer, activeCardId, listClassPrefix}: PlaceCardProps): JSX.Element {
   return (
     <article
-      className="cities__card place-card"
+      className={`${listClassPrefix}__card place-card`}
       onMouseOver={() => {
         activeCardId = offer.id;
         console.log(`Наведение на карточку с ID ${offer.id}`);
@@ -20,7 +21,7 @@ export default function PlaceCardProps({offer, activeCardId}: PlaceCardProps): J
           <span>Premium</span>
         </div>
       }
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${listClassPrefix}__image-wrapper place-card__image-wrapper`}>
         <Link to="#">
           <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place image" />
         </Link>
@@ -28,7 +29,7 @@ export default function PlaceCardProps({offer, activeCardId}: PlaceCardProps): J
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{offer.price}</b>
+            <b className="place-card__price-value">&euro;{offer.price} </b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className={`place-card__bookmark-button ${offer.isFavorite && 'place-card__bookmark-button--active'} button`} type="button">
