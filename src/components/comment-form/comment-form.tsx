@@ -1,5 +1,5 @@
-import { Rating } from '../../const'
-import React from 'react'
+import { Rating } from '../../const';
+import React from 'react';
 
 export default function CommentForm(): JSX.Element {
   const [formData, setFormData] = React.useState({
@@ -17,27 +17,27 @@ export default function CommentForm(): JSX.Element {
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating">
         {Object.entries(Rating).map(([value, title]) => (
-            <React.Fragment key={value}>
-              <input
-                className="form__rating-input visually-hidden"
-                onChange={handleFieldChange}
-                name="rating"
-                value={value}
-                id={`${value}-stars`}
-                type="radio"
-                checked={formData.rating === value}
-              />
-              <label
-                htmlFor={`${value}-stars`}
-                className="reviews__rating-label form__rating-label"
-                title={title}
-              >
-                <svg className="form__star-image" width="37" height="33">
-                  <use xlinkHref="#icon-star" />
-                </svg>
-              </label>
-            </React.Fragment>
-          ))}
+          <React.Fragment key={value}>
+            <input
+              className="form__rating-input visually-hidden"
+              onChange={handleFieldChange}
+              name="rating"
+              value={value}
+              id={`${value}-stars`}
+              type="radio"
+              checked={formData.rating === value}
+            />
+            <label
+              htmlFor={`${value}-stars`}
+              className="reviews__rating-label form__rating-label"
+              title={title}
+            >
+              <svg className="form__star-image" width="37" height="33">
+                <use xlinkHref="#icon-star" />
+              </svg>
+            </label>
+          </React.Fragment>
+        ))}
       </div>
       <textarea
         onChange={handleFieldChange}
@@ -55,5 +55,5 @@ export default function CommentForm(): JSX.Element {
         <button className="reviews__submit form__submit button" type="submit" disabled={false}>Submit</button>
       </div>
     </form>
-  )
+  );
 }

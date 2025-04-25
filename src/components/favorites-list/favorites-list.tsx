@@ -1,6 +1,6 @@
 import { FavoriteOffers } from '../../types/offer';
 import { CITIES } from '../../const';
-import FavoritesListItem from './favorites-list-item'
+import FavoritesListItem from './favorites-list-item';
 
 type FavoritesListProps = {
   favoriteOffers: FavoriteOffers;
@@ -21,5 +21,5 @@ export default function FavoritesList({favoriteOffers}: FavoritesListProps): JSX
         <FavoritesListItem key={city} city={city} favoriteCityOffers={offers} />
       ))}
     </ul>
-  )
+  );
 }

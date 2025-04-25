@@ -22,13 +22,13 @@ export type Offer = {
   previewImage: string;
   description?: string;
   bedrooms?: number;
-  goods?: [string];
+  goods?: string[];
   host?: {
     name: string;
     avatarUrl: string;
     isPro: boolean;
     };
-  images?: [string];
+  images?: string[];
   maxAdults?: number;
 }
 

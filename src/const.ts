@@ -24,7 +24,7 @@ export const Rating = {
   3: 'not bad',
   4: 'good',
   5: 'perfect'
-}
+};
 
 export enum AppRoute {
   Favorites = '/favorites',
