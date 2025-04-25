@@ -14,7 +14,7 @@ export default function PlaceCard({offer, activeCardId, listClassPrefix}: PlaceC
       className={`${listClassPrefix}__card place-card`}
       onMouseOver={() => {
         activeCardId = offer.id;
-        console.log(`Наведение на карточку с ID ${offer.id}`);
+        //console.log(`Наведение на карточку с ID ${offer.id}`);
       }}
     >
       {offer.isPremium &&

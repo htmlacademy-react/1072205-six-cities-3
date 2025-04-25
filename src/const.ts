@@ -15,8 +15,16 @@ export const SORT_TYPES = [
 ];
 
 export const Setting = {
-  PlacesCount: 200,
+  PlacesCount: 200
 };
+
+export const Rating = {
+  1: 'terribly',
+  2: 'badly',
+  3: 'not bad',
+  4: 'good',
+  5: 'perfect'
+}
 
 export enum AppRoute {
   Favorites = '/favorites',
