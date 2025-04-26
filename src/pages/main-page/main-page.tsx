@@ -1,3 +1,4 @@
+import { Offer } from '../../types/offer';
 import Header from '../../components/header/header';
 import Locations from '../../components/locations/locations';
 import Sort from '../../components/sort/sort';
@@ -6,9 +7,10 @@ import Map from '../../components/map/map';
 
 type MainPageProps = {
   placesCount: number;
+  offers: Offer[];
 }
 
-export default function MainPage({placesCount} : MainPageProps): JSX.Element {
+export default function MainPage({placesCount, offers} : MainPageProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <Header />
@@ -24,7 +26,7 @@ export default function MainPage({placesCount} : MainPageProps): JSX.Element {
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{placesCount} places to stay in Amsterdam</b>
               <Sort />
-              <PlacesList />
+              <PlacesList offers={offers} listClassPrefix="cities" />
             </section>
             <div className="cities__right-section">
               <Map />
