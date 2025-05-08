@@ -29,10 +29,10 @@ export default function MainPage({ placesCount, offers }: MainPageProps): JSX.El
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{placesCount} places to stay in Amsterdam</b>
               <Sort />
-              <PlacesList offers={offers} listClassPrefix="cities" setActiveCard={setActiveCard} />
+              <PlacesList offers={offers} classPrefix="cities" setActiveCard={setActiveCard} />
             </section>
             <div className="cities__right-section">
-              <Map city={'Amsterdam'} places={offers} activeCard={activeCard} />
+              <Map city={'Amsterdam'} classPrefix="cities" places={offers} activeCard={activeCard} />
             </div>
           </div>
         </div>

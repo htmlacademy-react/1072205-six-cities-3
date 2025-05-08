@@ -9,6 +9,7 @@ type MapProps = {
   city: typeof CITIES[number];
   places: Offers;
   activeCard: string | null;
+  classPrefix: string;
 }
 
 const defaultIcon = leaflet.icon({
@@ -23,7 +24,7 @@ const activeIcon = leaflet.icon({
   iconAnchor: [15, 40],
 });
 
-export default function Map({ city, places, activeCard }: MapProps): JSX.Element {
+export default function Map({ city, places, activeCard, classPrefix }: MapProps): JSX.Element {
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
 
@@ -53,8 +54,8 @@ export default function Map({ city, places, activeCard }: MapProps): JSX.Element
 
   return (
     <section
-      className="cities__map map"
-      style={{ height: '100%' }}
+      className={`${classPrefix}__map map`}
+      style={{ height: classPrefix === 'offer' ? '579px' : '100%' }}
       ref={mapRef}
     />
   );

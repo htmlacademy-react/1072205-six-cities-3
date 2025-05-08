@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
 import { Reviews } from '../../types/review';
+import { Offers } from '../../types/offer';
 import Header from '../../components/header/header';
 import ReviewsList from '../../components/reviews/reviews-list';
 import CommentForm from '../../components/comment-form/comment-form';
+import Map from '../../components/map/map';
 
 type OfferPageProps = {
   reviews: Reviews;
+  offers: Offers;
 }
 
-export default function OfferPage({ reviews }: OfferPageProps): JSX.Element {
+export default function OfferPage({ reviews, offers }: OfferPageProps): JSX.Element {
   return (
     <div className="page">
       <Header />
@@ -144,7 +147,7 @@ export default function OfferPage({ reviews }: OfferPageProps): JSX.Element {
               </section>
             </div>
           </div>
-          <section className="offer__map map"></section>
+          <Map city={'Amsterdam'} classPrefix="offer" places={offers} activeCard={offers[0].id} />
         </section>
         <div className="container">
           <section className="near-places places">

@@ -5,13 +5,13 @@ import { AppRoute } from '../../const';
 type PlaceCardProps = {
   offer: Offer;
   setActiveCard?: (id: string) => void;
-  listClassPrefix?: string;
+  classPrefix?: string;
 }
 
-export default function PlaceCard({offer, setActiveCard, listClassPrefix}: PlaceCardProps): JSX.Element {
+export default function PlaceCard({offer, setActiveCard, classPrefix}: PlaceCardProps): JSX.Element {
   return (
     <article
-      className={`${listClassPrefix}__card place-card`}
+      className={`${classPrefix}__card place-card`}
       onMouseOver={() => {
         setActiveCard && setActiveCard(offer.id);
       }}
@@ -21,13 +21,13 @@ export default function PlaceCard({offer, setActiveCard, listClassPrefix}: Place
         <div className="place-card__mark">
           <span>Premium</span>
         </div>}
-      <div className={`${listClassPrefix}__image-wrapper place-card__image-wrapper`}>
+      <div className={`${classPrefix}__image-wrapper place-card__image-wrapper`}>
         <Link to={`${AppRoute.Offer}/${offer.id}`}>
           <img
             className="place-card__image"
             src={offer.previewImage}
-            width={listClassPrefix === "favorites" ? "150" : "260"}
-            height={listClassPrefix === "favorites" ? "110" : "200"}
+            width={classPrefix === "favorites" ? "150" : "260"}
+            height={classPrefix === "favorites" ? "110" : "200"}
             alt="Place image"
           />
         </Link>

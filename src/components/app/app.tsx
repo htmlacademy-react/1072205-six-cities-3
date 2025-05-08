@@ -20,6 +20,7 @@ type FavoritesPageProps = {
 
 type OfferPageProps = {
   reviews: Reviews;
+  offers: Offers;
 }
 
 export default function App(
@@ -49,7 +50,7 @@ export default function App(
         />
         <Route
           path={`${AppRoute.Offer}/:id`}
-          element={<OfferPage reviews={reviews}/>}
+          element={<OfferPage reviews={reviews} offers={offers}/>}
         />
         <Route
           path="*"
