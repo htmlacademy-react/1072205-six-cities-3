@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Offer } from '../../types/offer';
 import Header from '../../components/header/header';
 import Locations from '../../components/locations/locations';
@@ -10,7 +11,9 @@ type MainPageProps = {
   offers: Offer[];
 }
 
-export default function MainPage({placesCount, offers} : MainPageProps): JSX.Element {
+export default function MainPage({ placesCount, offers }: MainPageProps): JSX.Element {
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+
   return (
     <div className="page page--gray page--main">
       <Header />
@@ -26,10 +29,10 @@ export default function MainPage({placesCount, offers} : MainPageProps): JSX.Ele
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{placesCount} places to stay in Amsterdam</b>
               <Sort />
-              <PlacesList offers={offers} listClassPrefix="cities" />
+              <PlacesList offers={offers} listClassPrefix="cities" setActiveCard={setActiveCard} />
             </section>
             <div className="cities__right-section">
-              <Map />
+              <Map city={'Amsterdam'} places={offers} activeCard={activeCard} />
             </div>
           </div>
         </div>
