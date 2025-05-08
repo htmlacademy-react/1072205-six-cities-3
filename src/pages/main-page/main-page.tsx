@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Offer } from '../../types/offer';
+import { Offers } from '../../types/offer';
 import Header from '../../components/header/header';
 import Locations from '../../components/locations/locations';
 import Sort from '../../components/sort/sort';
@@ -8,7 +8,7 @@ import Map from '../../components/map/map';
 
 type MainPageProps = {
   placesCount: number;
-  offers: Offer[];
+  offers: Offers;
 }
 
 export default function MainPage({ placesCount, offers }: MainPageProps): JSX.Element {

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import { Offers, FavoriteOffers } from '../../types/offer';
+import { Reviews } from '../../types/review';
 import FavoritesPage from '../../pages/favorites-page/favorites-page';
 import LoginPage from '../../pages/login-page/login-page';
 import MainPage from '../../pages/main-page/main-page';
@@ -17,8 +18,12 @@ type FavoritesPageProps = {
   favoriteOffers: FavoriteOffers;
 }
 
+type OfferPageProps = {
+  reviews: Reviews;
+}
+
 export default function App(
-  {placesCount, offers, favoriteOffers}: MainPageProps & FavoritesPageProps
+  {placesCount, offers, favoriteOffers, reviews}: MainPageProps & FavoritesPageProps & OfferPageProps
 ): JSX.Element {
 
   return (
@@ -44,7 +49,7 @@ export default function App(
         />
         <Route
           path={`${AppRoute.Offer}/:id`}
-          element={<OfferPage />}
+          element={<OfferPage reviews={reviews}/>}
         />
         <Route
           path="*"
