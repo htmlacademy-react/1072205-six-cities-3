@@ -4,7 +4,7 @@ import { AppRoute } from '../../const';
 
 type PlaceCardProps = {
   offer: Offer;
-  setActiveCard: (id: string) => void;
+  setActiveCard?: (id: string) => void;
   listClassPrefix?: string;
 }
 
@@ -13,8 +13,9 @@ export default function PlaceCard({offer, setActiveCard, listClassPrefix}: Place
     <article
       className={`${listClassPrefix}__card place-card`}
       onMouseOver={() => {
-        setActiveCard(offer.id);
+        setActiveCard && setActiveCard(offer.id);
       }}
+      onMouseOut={() => setActiveCard && setActiveCard('')}
     >
       {offer.isPremium &&
         <div className="place-card__mark">
@@ -22,7 +23,13 @@ export default function PlaceCard({offer, setActiveCard, listClassPrefix}: Place
         </div>}
       <div className={`${listClassPrefix}__image-wrapper place-card__image-wrapper`}>
         <Link to={`${AppRoute.Offer}/${offer.id}`}>
-          <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place image" />
+          <img
+            className="place-card__image"
+            src={offer.previewImage}
+            width={listClassPrefix === "favorites" ? "150" : "260"}
+            height={listClassPrefix === "favorites" ? "110" : "200"}
+            alt="Place image"
+          />
         </Link>
       </div>
       <div className="place-card__info">
