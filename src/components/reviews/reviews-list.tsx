@@ -12,5 +12,5 @@ export default function ReviewsList({ reviews }: ReviewsListProps): JSX.Element 
         <ReviewItem key={review.id} review={review} />
       ))}
     </ul>
-  )
+  );
 }

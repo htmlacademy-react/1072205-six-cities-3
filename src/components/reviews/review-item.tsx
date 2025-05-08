@@ -34,5 +34,5 @@ export default function ReviewItem({ review }: ReviewProps): JSX.Element {
         <time className="reviews__time" dateTime={review.date}>{formatReviewDate(review.date)}</time>
       </div>
     </li>
-  )
+  );
 }

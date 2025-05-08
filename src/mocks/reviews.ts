@@ -1,4 +1,4 @@
-import { Reviews } from '../types/review'
+import { Reviews } from '../types/review';
 
 export const reviews: Reviews = [
   {
@@ -34,4 +34,4 @@ export const reviews: Reviews = [
     comment: 'The apartment was clean and matched the photos. Would book again!',
     rating: 4
   }
-]
+];

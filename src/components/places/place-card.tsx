@@ -12,9 +12,7 @@ export default function PlaceCard({offer, setActiveCard, classPrefix}: PlaceCard
   return (
     <article
       className={`${classPrefix}__card place-card`}
-      onMouseOver={() => {
-        setActiveCard && setActiveCard(offer.id);
-      }}
+      onMouseOver={() => setActiveCard?.(offer.id)}
       onMouseOut={() => setActiveCard && setActiveCard('')}
     >
       {offer.isPremium &&
@@ -26,8 +24,8 @@ export default function PlaceCard({offer, setActiveCard, classPrefix}: PlaceCard
           <img
             className="place-card__image"
             src={offer.previewImage}
-            width={classPrefix === "favorites" ? "150" : "260"}
-            height={classPrefix === "favorites" ? "110" : "200"}
+            width={classPrefix === 'favorites' ? '150' : '260'}
+            height={classPrefix === 'favorites' ? '110' : '200'}
             alt="Place image"
           />
         </Link>
