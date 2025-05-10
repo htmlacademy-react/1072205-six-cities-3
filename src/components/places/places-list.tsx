@@ -3,19 +3,19 @@ import PlaceCard from './place-card';
 
 type PlacesListProps = {
   offers: Offer[];
-  listClassPrefix?: string;
-  setActiveCard: (id: string | null) => void;
+  classPrefix?: string;
+  setActiveCard?: (id: string | null) => void;
 }
 
-export default function PlacesList({ offers, listClassPrefix, setActiveCard }: PlacesListProps): JSX.Element {
+export default function PlacesList({ offers, classPrefix, setActiveCard }: PlacesListProps): JSX.Element {
   return (
-    <div className="cities__places-list places__list tabs__content">
+    <div className={`${classPrefix}${classPrefix === 'cities' ? '__places-' : '__'}list places__list ${classPrefix === 'cities' ? 'tabs__content' : ''}`}>
       {offers.map((offer) => (
         <PlaceCard
           key={offer.id}
           offer={offer}
           setActiveCard={setActiveCard}
-          listClassPrefix={listClassPrefix}
+          classPrefix={classPrefix}
         />
       ))}
     </div>
