@@ -20,7 +20,7 @@ export default function FavoritesListItemProps({city, favoriteCityOffers}: Favor
       </div>
       <div className="favorites__places">
         {favoriteCityOffers.map((offer) => (
-          <PlaceCard key={offer.id} offer={offer} listClassPrefix="favorites" />
+          <PlaceCard key={offer.id} offer={offer} classPrefix="favorites" />
         ))}
       </div>
     </li>
