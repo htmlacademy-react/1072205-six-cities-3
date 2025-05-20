@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { RootState } from '../../store/store';
 import { Offers } from '../../types/offer';
 import Header from '../../components/header/header';
@@ -12,16 +12,32 @@ type MainPageProps = {
   offers: Offers;
 }
 
+const sortOffers = (offers: Offers, sortType: string): Offers => {
+  switch (sortType) {
+    case 'Price: low to high':
+      return [...offers].sort((a, b) => a.price - b.price);
+    case 'Price: high to low':
+      return [...offers].sort((a, b) => b.price - a.price);
+    case 'Top rated first':
+      return [...offers].sort((a, b) => b.rating - a.rating);
+    default:
+      return offers;
+  }
+};
+
 export default function MainPage({offers}: MainPageProps): JSX.Element {
   const [activeCard, setActiveCard] = useState<string | null>(null);
-  const [filteredOffers, setFilteredOffers] = useState(offers);
+  const [activeSort, setActiveSort] = useState('Popular');
 
   const activeCity = useSelector((state: RootState) => state.activeCity);
 
-  useEffect(() => {
-    const cityOffers = offers.filter((offer) => offer.city.name === activeCity);
-    setFilteredOffers(cityOffers);
-  }, [activeCity]);
+  const cityOffers = useMemo(() =>
+    offers.filter((offer) => offer.city.name === activeCity),
+  [offers, activeCity]);
+
+  const sortedOffers = useMemo(() =>
+    sortOffers(cityOffers, activeSort),
+  [cityOffers, activeSort]);
 
   return (
     <div className="page page--gray page--main">
@@ -36,12 +52,12 @@ export default function MainPage({offers}: MainPageProps): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{filteredOffers.length} places to stay in {activeCity}</b>
-              <Sort />
-              <PlacesList offers={filteredOffers} classPrefix="cities" setActiveCard={setActiveCard} />
+              <b className="places__found">{sortedOffers.length} places to stay in {activeCity}</b>
+              <Sort activeSort={activeSort} onChangeSort={setActiveSort} />
+              <PlacesList offers={sortedOffers} classPrefix="cities" setActiveCard={setActiveCard} />
             </section>
             <div className="cities__right-section">
-              <Map city={activeCity} classPrefix="cities" places={filteredOffers} activeCard={activeCard} />
+              <Map city={activeCity} classPrefix="cities" places={sortedOffers} activeCard={activeCard} />
             </div>
           </div>
         </div>
