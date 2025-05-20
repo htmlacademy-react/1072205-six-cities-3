@@ -14,10 +14,6 @@ export const SORT_TYPES = [
   'Top rated first'
 ];
 
-export const Setting = {
-  PlacesCount: 200
-};
-
 export const Rating = {
   1: 'terribly',
   2: 'badly',

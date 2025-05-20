@@ -9,36 +9,26 @@ import OfferPage from '../../pages/offer-page/offer-page';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import PrivateRoute from '../private-route/private-route';
 
-type MainPageProps = {
-  placesCount: number;
+type AppProps = {
   offers: Offers;
-}
-
-type FavoritesPageProps = {
   favoriteOffers: FavoriteOffers;
-}
-
-type OfferPageProps = {
   reviews: Reviews;
-  offers: Offers;
-}
+  authorizationStatus: AuthorizationStatus;
+};
 
-export default function App(
-  {placesCount, offers, favoriteOffers, reviews}: MainPageProps & FavoritesPageProps & OfferPageProps
-): JSX.Element {
-
+export default function App({offers, favoriteOffers, reviews, authorizationStatus}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={<MainPage placesCount={placesCount} offers={offers} />}
+          element={<MainPage offers={offers} />}
         />
         <Route
           path={AppRoute.Favorites}
           element={
             <PrivateRoute
-              authorizationStatus={AuthorizationStatus.Auth}
+              authorizationStatus={authorizationStatus}
             >
               <FavoritesPage favoriteOffers={favoriteOffers} />
             </PrivateRoute>
@@ -50,7 +40,7 @@ export default function App(
         />
         <Route
           path={`${AppRoute.Offer}/:id`}
-          element={<OfferPage reviews={reviews} offers={offers}/>}
+          element={<OfferPage reviews={reviews} offers={offers} authorizationStatus={authorizationStatus}/>}
         />
         <Route
           path="*"
