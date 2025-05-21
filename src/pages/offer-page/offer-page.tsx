@@ -1,5 +1,6 @@
 import { Reviews } from '../../types/review';
 import { Offers } from '../../types/offer';
+import { AuthorizationStatus } from '../../const';
 import Header from '../../components/header/header';
 import ReviewsList from '../../components/reviews/reviews-list';
 import CommentForm from '../../components/comment-form/comment-form';
@@ -9,9 +10,10 @@ import PlacesList from '../../components/places/places-list';
 type OfferPageProps = {
   reviews: Reviews;
   offers: Offers;
+  authorizationStatus: AuthorizationStatus;
 }
 
-export default function OfferPage({ reviews, offers }: OfferPageProps): JSX.Element {
+export default function OfferPage({ reviews, offers, authorizationStatus }: OfferPageProps): JSX.Element {
   return (
     <div className="page">
       <Header />
@@ -149,7 +151,7 @@ export default function OfferPage({ reviews, offers }: OfferPageProps): JSX.Elem
                     <ReviewsList reviews={reviews} />
                   </>
                 )}
-                <CommentForm />
+                {authorizationStatus === AuthorizationStatus.Auth && <CommentForm />}
               </section>
             </div>
           </div>

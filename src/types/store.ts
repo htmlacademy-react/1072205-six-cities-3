@@ -1,8 +1,7 @@
 import { Offers } from '../types/offer';
 
 export type State = {
-  city: string;
-  offers: Offers;
+  activeCity: string;
 };
 
 export const CHANGE_CITY = 'changeCity' as const;

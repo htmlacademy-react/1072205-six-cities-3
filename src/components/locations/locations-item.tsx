@@ -9,7 +9,7 @@ type LocationsItemProps = {
 
 export default function LocationsItem({ cityName }: LocationsItemProps): JSX.Element {
   const dispatch = useDispatch();
-  const selectedCity = useSelector((state: RootState) => state.city);
+  const selectedCity = useSelector((state: RootState) => state.activeCity);
 
   const handleClick = () => {
     dispatch(changeCity(cityName));
